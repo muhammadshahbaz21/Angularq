@@ -1,0 +1,22 @@
+/* navigation.component.css */
+.navbar {
+    padding: 1rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-item {
+    margin-right: 1rem;
+  }
+  
+  .mat-form-field {
+    margin-right: 1rem;
+  }
+  
+  .mat-select {
+    min-width: 150px; /* Adjust width as needed */
+  }
+  

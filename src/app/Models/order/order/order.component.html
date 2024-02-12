@@ -1,0 +1,184 @@
+<div class="container mt-5">
+    
+    <div class="alert alert-info" role="alert">
+      <strong>Order Overview</strong>
+    </div>
+    <div class="mt-3 space-x-4">
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded border border-blue-800">
+          All
+        </button>
+        <div class="relative inline-block text-left">
+          <div (click)="toggleDropdown()" (clickOutside)="closeDropdown()">
+            <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-blue-500 text-white px-3 py-1 border border-blue-800 hover:bg-blue-700" id="pending-all-button" aria-expanded="true" aria-haspopup="true">
+              Pending: All
+              <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+    
+          <div *ngIf="showDropdown">
+            <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-blue-500 text-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="pending-all-button" tabindex="-1">
+              <div class="py-1" role="none">
+                <!-- Dropdown items with smaller padding -->
+                <div class="mb-1">
+                  <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-700" role="menuitem" tabindex="-1" (click)="selectOption('Option 1')">Order 1</a>
+                </div>
+                <div class="mb-1">
+                  <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-700" role="menuitem" tabindex="-1" (click)="selectOption('Option 2')">Order 2</a>
+                </div>
+                <div class="mb-1">
+                  <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-700" role="menuitem" tabindex="-1" (click)="selectOption('Option 3')">Order 3</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded border border-blue-700">
+          Ready To Ship
+        </button>
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded border border-blue-700">
+          Shipped
+        </button>
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded border border-blue-700">
+          Delivered
+        </button>
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded border border-blue-700">
+          Cancled
+        </button>
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded border border-blue-700">
+          Returned
+        </button>
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded border border-blue-700">
+          Faild Delivery
+        </button>
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded border border-blue-700">
+          Refund Only
+        </button>
+        </div>
+    </div>
+    <div class="flex mt-5 space-x-4">
+      <div class="">
+        <input type="Order Number" class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 block w-full sm:text-sm" id="OrderNumberInput" placeholder="Order Number">
+      </div>
+      
+      <div class="">
+        <label for="CustomerInput" class="block text-sm font-medium text-gray-700"></label>
+        <input type="Customer" class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 block w-full sm:text-sm" id="CustomerInput" placeholder="Customer">
+      </div>
+      
+      <div class="">
+        <label for="ProductInput" class="block text-sm font-medium text-gray-700"></label>
+        <input type="Product" class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 block w-full sm:text-sm" id="ProductInput" placeholder="Product">
+      </div>
+      <div class="">
+        <!-- Label for Product Tag -->
+        
+        <div class="relative flex">
+          <!-- Input box for Product Tag -->
+          <input type="text" [(ngModel)]="selectedProductTag" class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 block w-full sm:text-sm" id="ProductTagInput" placeholder="ProductTag">
+      
+          <!-- Dropdown arrow -->
+          <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          
+          <!-- Dropdown options -->
+          <select [(ngModel)]="selectedProductTag" class="absolute  p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 block w-full sm:text-sm">
+            <option value="" disabled selected>Select Product Tag</option>
+            <option value="option1">768678</option>
+            <option value="option2">345425</option>
+            <option value="option3">356576</option>
+          </select>
+        </div>
+      </div>
+      
+    
+      <div class="">
+        <input type="Seller SKU" class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 block w-full sm:text-sm" id="SellerSKUInput" placeholder="Seller SKU">
+      </div>
+    
+      <div class="">
+        <input type="Payment" class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 block w-full sm:text-sm" id="PaymentInput" placeholder="PaymentInput">
+      </div>
+    
+      <!-- Search button -->
+      <button (click)="toggleSearch()" class="bg-blue-500 hover:bg-blue-700 text-white px-3 rounded py-0">Search</button>
+    
+      <!-- Search textbox (initially hidden) -->
+      <input *ngIf="isSearchVisible" type="text" id="searchTextbox" class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 block sm:text-sm" placeholder="Search...">
+      
+    </div>
+    
+    <mat-form-field class="field1">
+      <mat-label>Select Start date</mat-label>
+      <input matInput [matDatepicker]="datepicker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+      <mat-datepicker #datepicker>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+    
+    <mat-form-field class="space-x-4 mt-3">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="rangePicker">
+        <input matStartDate placeholder="Start date" id="start_date">
+        <input matEndDate placeholder="End date" id="end_date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
+      <mat-date-range-picker #rangePicker>
+        <mat-date-range-picker-actions>
+          <button mat-button matDateRangePickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
+        </mat-date-range-picker-actions>
+      </mat-date-range-picker>
+    </mat-form-field>
+    
+<div class="flex justify-between items-center px-4 py-2 border border-gray-300 mt-5">
+  <!-- Left side buttons with dropdown -->
+  <div class="flex items-center space-x-4 ">
+    <div class="relative">
+      <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">print</button>
+      <div class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
+        <a class="block px-4 py-2 hover:bg-gray-100">Single page</a>
+        <a class="block px-4 py-2 hover:bg-gray-100">Double page</a>
+        <a class="block px-4 py-2 hover:bg-gray-100">Multiple page</a>
+      </div>
+    </div>
+    <div class="relative">
+      <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Set Status</button>
+      <div class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
+        <a class="block px-4 py-2 hover:bg-gray-100">1</a>
+        <a class="block px-4 py-2 hover:bg-gray-100">2</a>
+        <a class="block px-4 py-2 hover:bg-gray-100">3</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right side dropdown buttons -->
+  <div class="flex items-center space-x-2 mt-3">
+    <button mat-button [matMenuTriggerFor]="menu">Dropdown Button</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+      <button mat-menu-item>Item 3</button>
+    </mat-menu>   
+    <button class="px-4 py-2 bg-green-500 text-white rounded-lg">import</button>
+    <div class="relative">
+      <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">View History</button>
+      <div class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
+        <a class="block px-4 py-2 hover:bg-gray-100">1 Day Before</a>
+        <a class="block px-4 py-2 hover:bg-gray-100">1 weak Before</a>
+        <a class="block px-4 py-2 hover:bg-gray-100">1 month Before</a>
+      </div>
+    </div>
+</div>
+</div>
